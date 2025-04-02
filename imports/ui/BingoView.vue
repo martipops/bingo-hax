@@ -20,9 +20,6 @@
       </InputText>
     </div>
   </div>
-  <pre>
-    {{ conditions }}
-  </pre>
 </template>
 
 <script lang="ts">

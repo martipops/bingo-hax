@@ -1,17 +1,12 @@
 <template>
   <Card>
     <template #cell="{ index }">
-      <div 
-        class="w-full h-full flex items-center justify-center"
-        :class="selectedNumbers.includes(modelValue.numbers[index]) ? 'bg-blue-500' : 'bg-white dark:bg-gray-800'"
-      >
-        <input v-model="modelValue.numbers[index]" @input="changed" class="w-full text-center bg-transparent h-full"/>
+      <div class="w-full h-full flex items-center justify-center"
+        :class="classDetermine(index)">
+        <input v-model="modelValue.numbers[index]" @input="changed" class="w-full text-center bg-transparent h-full" />
       </div>
     </template>
   </Card>
-  <pre>
-    {{ modelValue.winner }}
-  </pre>
 </template>
 
 <script lang="ts">
@@ -44,9 +39,43 @@ export default {
   },
   methods: {
     changed() {
-      this.determineWinner(this.modelValue);
       this.$emit('update:modelValue', this.modelValue);
-    }
+    },
+    classDetermine(index: number) {
+      if (this.selectedNumbers.includes(this.modelValue.numbers[index])) {
+        if (this.modelValue.winner && this.modelValue.winCondition && this.modelValue.winCondition[index]) {
+          return 'bg-green-500';
+        }
+        return 'bg-blue-500';
+      }
+      return 'bg-white dark:bg-gray-800';
+    },
   },
+  watch: {
+    modelValue: {
+      deep: true,
+      immediate: true,
+      handler(val: any) {
+        console.log('Model value changed:', val);
+        this.determineWinner(this.modelValue);
+      },
+    },
+    selectedNumbers: {
+      immediate: true,
+      deep: true,
+      handler(val: any) {
+        console.log('Selected numbers changed:', val);
+        this.determineWinner(this.modelValue);
+      },
+    },
+    conditions: {
+      immediate: true,
+      deep: true,
+      handler(val: any) {
+        console.log('Conditions changed:', val);
+        this.determineWinner(this.modelValue);
+      }
+    }
+  }
 };
 </script>

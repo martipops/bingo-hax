@@ -1,4 +1,3 @@
-import { c } from "vite/dist/node/moduleRunnerTransport.d-CXw_Ws6P";
 import { reactive, watch } from "vue";
 
 export type WinConditionType = boolean[];
@@ -46,11 +45,9 @@ const determineWinner = (card: BingoCardType) => {
       return true;
     }
   }
+  card.winner = false;
+  card.winCondition = null;
 }
-
-watch(selectedNumbers, () => {
-  determineWinner(bingoCards[0]);
-})
 
 export function globalsSingleton() {
   return { winConditions, selectedNumbers, bingoCards, newBingoCard, addBingoCard, determineWinner }
