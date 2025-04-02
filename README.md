@@ -1,6 +1,6 @@
-# Meteor + Vue3 + Vite
+# Bingo Hax
 
-This is a simple example of how to use Vue3 with Meteor.
+How we win late night bingo
 
 ## How to use
 
@@ -17,3 +17,4 @@ This is a simple example of how to use Vue3 with Meteor.
 - [Meteor](https://www.meteor.com/)
 - [Vue Meteor Tracker](https://github.com/meteor-vue/vue-meteor-tracker)
 - [Tailwind CSS](https://tailwindcss.com/)
+- Typescript

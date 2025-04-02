@@ -18,8 +18,6 @@ import { defineComponent } from 'vue';
 import BingoCard from './BingoCard.vue';
 import InputText from './Components/InputText.vue';
 
-const TERMINAL_COMMANDS = 
-}
 
 export default defineComponent({
   components: {
