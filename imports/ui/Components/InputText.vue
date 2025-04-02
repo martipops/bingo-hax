@@ -1,7 +1,8 @@
 <template>
   <input 
-    class="p-2 w-full rounded-md shadow-inner m-1 border-2 focus:border-green-500 select-none focus:outline-none"
+    class="p-2 w-full rounded-md shadow-inner border-2 border-gray-800 focus:border-blue-600 select-none focus:outline-none dark:bg-gray-700"
     :value="modelValue" 
+    :placeholder="placeholder"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement)?.value)"
     @keyup.enter="handleEnter" />
 </template>
@@ -14,6 +15,10 @@ export default {
       type: String,
       default: '',
     },
+    placeholder: {
+      type: String,
+      default: 'Type here...',
+    }
   },
   emits: ['update:modelValue', 'onEnter'],
   methods: {
