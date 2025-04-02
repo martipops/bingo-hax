@@ -59,11 +59,11 @@ export default defineComponent({
         this.selectedNumbers.splice(0);
       }
       else if (value[0] === '-') {
-        this.selectedNumbers = this.selectedNumbers.filter((number) => number !== value.slice(1));
+        this.selectedNumbers.splice(this.selectedNumbers.indexOf(value.substring(1)), 1);
       } else {
         const num = parseInt(value);
         if (!isNaN(num)) {
-          this.selectedNumbers.push(value);
+          this.selectedNumbers.push(num.toString());
         }
       }
       this.terminalNumber = '';

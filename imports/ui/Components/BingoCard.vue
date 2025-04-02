@@ -1,12 +1,14 @@
 <template>
-  <Card>
-    <template #cell="{ index }">
-      <div class="w-full h-full flex items-center justify-center"
-        :class="classDetermine(index)">
-        <input v-model="modelValue.numbers[index]" @input="changed" class="w-full text-center bg-transparent h-full" />
-      </div>
-    </template>
-  </Card>
+  <div :class="modelValue.winner ? 'border-4 border-green-500' : 'border-4 border-transparent'">
+    <Card>
+      <template #cell="{ index }">
+        <div class="w-full h-full flex items-center justify-center"
+          :class="classDetermine(index)">
+          <input v-model="modelValue.numbers[index]" @input="changed" class="w-full text-center bg-transparent h-full" />
+        </div>
+      </template>
+    </Card>
+  </div>
 </template>
 
 <script lang="ts">

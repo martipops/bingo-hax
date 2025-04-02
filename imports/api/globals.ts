@@ -1,4 +1,4 @@
-import { reactive, watch } from "vue";
+import { reactive } from "vue";
 
 export type WinConditionType = boolean[];
 export type WinConditionsType = WinConditionType[];
@@ -10,9 +10,11 @@ export interface BingoCardType {
 export type BingoCardsType = BingoCardType[];
 export type SelectedNumbersType = string[];
 
-const winConditions = reactive([] as WinConditionsType);
-const selectedNumbers = reactive([] as SelectedNumbersType);
-const bingoCards = reactive([] as BingoCardsType);
+import defaults from './defaults.json'
+
+const winConditions = reactive(defaults.winConditions as WinConditionsType);
+const selectedNumbers = reactive(defaults.selectedNumbers as SelectedNumbersType);
+const bingoCards = reactive(defaults.bingoCards as BingoCardsType);
 
 const newBingoCard = () => ({
   winner: false,

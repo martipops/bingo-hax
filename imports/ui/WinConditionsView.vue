@@ -11,11 +11,6 @@
       @delete="deleteWinCondition(index)"
     />
   </div>
-
-  <pre>
-    {{ conditions }}
-  </pre>
-
   <p v-if="conditions.length === 0" class="text-gray-500 italic mt-4">
     No win conditions added yet. Click the button above to add one.
   </p>
